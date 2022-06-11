@@ -1,0 +1,86 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{"security.login"|trans}}
+{% endblock %}
+
+{% block body %}
+okok
+
+	<form method="post">
+		{% if error %}
+			<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+		{% endif %}
+		<br><br><br>
+		<section class="vh-100">
+
+
+			<div class="container-fluid h-custom">
+				<div class="row d-flex justify-content-center align-items-center h-100">
+					<div class="col-md-9 col-lg-6 col-xl-5">
+						<img src="{{asset("build/images/draw2.webp")}}" class="img-fluid" alt="Sample image">
+					</div>
+					<div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+						<form>
+
+							<div class="input-group mb-3">
+								<div style="width:100%;text-align:center">
+								 {% include 'changeLangue.html.twig' %}
+								</div>
+							</div>
+							<!-- Email input -->
+
+							<div class="input-group mb-3">
+								<div class="input-group-prepend">
+									<span class="input-group-text" id="basic-addon1">
+										<i class="fa fa-envelope fa-2x" aria-hidden="true"></i>
+									</span>
+								</div>
+								<input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control  form-control-lg" placeholder="{{'security.email'|trans}}" required autofocus>
+							</div>
+
+							<!-- Password input -->
+							<div class="input-group mb-3">
+								<div class="input-group-prepend">
+									<span class="input-group-text" id="basic-addon1">
+										<i class="fa fa-lock fa-2x" aria-hidden="true"></i>
+									</span>
+								</div>
+								<input type="password" name="password" id="inputPassword" class="form-control  form-control-lg" placeholder="{{'security.password'|trans}}" required>
+							</div>
+
+
+							<div
+								class="d-flex justify-content-between align-items-center">
+								<!-- Checkbox -->
+								<div class="form-check mb-0">
+									<input class="form-check-input me-2" type="checkbox" value="" id="form2Example3"/>
+									<label class="form-check-label" for="form2Example3">
+										{{'security.remember-me'|trans}}
+									</label>
+								</div>
+
+								<a href="{{path('app_forgot_password_request')}}" class="text-body">
+									<i class="fa fa-question-circle" aria-hidden="true"></i>
+									{{'security.forgetten-password'|trans}}</a>
+							</div>
+							<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+							<div class="text-center text-lg-start mt-4 pt-2">
+
+
+								<button type="submit" class="btn btn-primary btn-lg" style="padding-left: 2.5rem; padding-right: 2.5rem;">
+									<i class="fa fa-chevron-circle-right" aria-hidden="true"></i>
+									{{'security.login'|trans}}</button>
+								<!-- <p class="small fw-bold mt-2 pt-1 mb-0">{{'security.dont-have-account'|trans}}
+									<a href="register" class="link-danger">{{'security.register'|trans}}</a>
+								</p> -->
+								
+							</div>
+
+
+						</div>
+					</div>
+				</div>
+
+			</section>
+		</form>
+	{% endblock %}

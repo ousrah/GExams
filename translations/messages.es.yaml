@@ -1,0 +1,22 @@
+
+Etudiants: Estudiantes
+Filieres: Ramas
+Users: Usuarios
+Etudiant: Estudiante
+Filiere: Rama
+User: Usuario
+Dashboard: Gestion de examenes
+security:
+  reset-password: Recuperar contraseña
+  forgetten-password: Olbido mi contraseña 
+  enter-email: Entre su correo electrónico
+  send-email:  Envíe el enlace para recuperar la contraseña
+  email: Correo electrónico
+  password: Contraseña
+  username: Apellido y nombre del usuario
+  remember-me: Recuérdame
+  login: Iniciar sesión
+  dont-have-account: No tengo cuenta
+  register: Registrarse
+  accept: Acepto todos
+  terms: los términos de uso

@@ -1,0 +1,20 @@
+Etudiant: طالب
+Filiere: شعبة
+Module: المادة
+Semestre: الأسدوس
+User: مستعمل
+Dashboard: تدبير الامتحانات
+security:
+  reset-password: استعادة كلمة المرور
+  forgetten-password: نسيت كلمة السر 
+  enter-email: أدخل بريدك الإلكتروني
+  send-email:  أرسل الرابط لاسترداد كلمة المرور
+  email: البريد الإلكتروني
+  password: كلمة المرور
+  username: اسم العائلة والاسم الشخصي للمستخدم
+  remember-me: تذكرني
+  login: دخول
+  dont-have-account: ليس لدي حساب
+  register: تسجيل
+  accept: أقبل كل 
+  terms: شروط الاستخدام

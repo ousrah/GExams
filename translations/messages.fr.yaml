@@ -1,0 +1,22 @@
+
+Etudiants: Etudiants
+Filieres: Filières
+Users: Utilisateurs
+Etudiant: Etudiant
+Filiere: Filière
+User: Utilisateur
+Dashboard: Gestion des examens
+security:
+  reset-password: Récupérer le mot de passe
+  forgetten-password: Mot de passe oublié
+  enter-email: Tapez votre E-mail
+  send-email:  Envoyez le lien pour récupérer le mot de passe
+  email: E-mail
+  password: Mot de passe
+  username: Nom et prénom de l'utilisateur
+  remember-me: Se souvenir de moi
+  login: Se connecter
+  dont-have-account: Je n'ai pas de compte
+  register: S'inscrire
+  accept: J'accepte toutes 
+  terms: les conditions d'utilisation

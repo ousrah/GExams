@@ -1,0 +1,52 @@
+<style>
+    .lstIconesLanguage{
+        width:100%;
+        text-align:center;
+    }
+    .iconeLanguage{
+        display:inline-block;
+        padding-top:6px;}
+    .flag
+    {
+        border-radius:50%;
+        width:40px;
+        height:40px;
+        padding:3px;
+        opacity: .8;
+        background-color:white;
+        border: solid 1px gray;
+    }
+    .flag:hover{
+        opacity: .9;
+        border: solid 2px #3e4582;
+
+    }
+</style>
+
+<ul class="lstIconesLanguage">
+    <li class="iconeLanguage" id='frLang'>
+        <a href="#">
+            <img class="flag" value="fr_FR" src="{{ asset('build/images/fr.png') }}" alt="Version Française">
+        </a>
+    </li>
+    <li class="iconeLanguage" id='enLang'>
+        <a href="#">
+            <img class="flag" value="en_EN" src="{{ asset('build/images/en.png') }}" alt="English Version">
+        </a>
+    </li>
+    <li class="iconeLanguage" id='arLang'>
+        <a href="#">
+            <img class="flag" value="ar_AR" src="{{ asset('build/images/ar.png') }}" alt="النسخة العربية">
+        </a>
+    </li>
+    <li class="iconeLanguage" id='arLang'>
+        <a href="#">
+            <img class="flag" value="es_ES" src="{{ asset('build/images/es.png') }}" alt="Versión española">
+        </a>
+    </li>
+</ul>
+
+
+{% block javascripts %}
+     {{ encore_entry_script_tags('langues') }}
+{% endblock %}

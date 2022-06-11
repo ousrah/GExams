@@ -1,0 +1,104 @@
+{% extends '@!EasyAdmin/layout.html.twig' %}
+
+
+{% block content_top_header %}
+	<div class="content-search">
+		<div class="row">
+			<div class="col-md-7">
+				{% if has_search %}
+					{% block search %}
+
+						<form class="form-action-search" method="get">
+							{% block search_form %}
+								{% block search_form_filters %}
+									{% for field, array in ea.search.appliedFilters %}
+										{% for key, value in array %}
+											{# This code re-applies your filters on searches, an iterable check is needed in cases we have more than one object for a filter #}
+											{% if value is iterable %}
+												{% for index, iterValue in value %}
+													<input type="hidden" name="filters[{{ field }}][{{ key }}][{{ index }}]" value="{{ iterValue }}">
+												{% endfor %}
+											{% else %}
+												<input type="hidden" name="filters[{{ field }}][{{ key }}]" value="{{ value }}">
+											{% endif %}
+										{% endfor %}
+									{% endfor %}
+								{% endblock %}
+
+								<input type="hidden" name="crudAction" value="index">
+								<input type="hidden" name="crudControllerFqcn" value="{{ ea.request.query.get('crudControllerFqcn') }}">
+								<input type="hidden" name="menuIndex" value="{{ ea.request.query.get('menuIndex') }}">
+								<input type="hidden" name="submenuIndex" value="{{ ea.request.query.get('submenuIndex') }}">
+								<input type="hidden" name="page" value="1">
+								<input type="hidden" name="signature" value="{{ ea_url().unsetAll().setAction('index').setController(ea.request.query.get('crudControllerFqcn')).getSignature() }}">
+
+								<div class="form-group">
+									<div class="form-widget">
+										<i class="fas fa-search content-search-icon"></i>
+
+										<label class="content-search-label" data-value="{{ app.request.get('query') }}">
+											<input style="margin:10px;padding:10px;" class="form-control {{ app.request.get('query') is null ? 'is-blank' }}" type="search" name="query" value="{{ app.request.get('query') ?? '' }}" placeholder="{{ 'action.search'|trans(ea.i18n.translationParameters, 'EasyAdminBundle') }}" spellcheck="false" autocorrect="false" oninput="this.parentNode.dataset.value=this.value">
+										</label>
+
+										{% if app.request.get('query') %}
+											<a href="{{ ea_url().unset('query') }}" class="content-search-reset">
+												<i class="fas fa-fw fa-times"></i>
+											</a>
+										{% endif %}
+									</div>
+								</div>
+							{% endblock %}
+						</form>
+					{% endblock search %}
+				{% endif %}
+			</div>
+			<div
+				class="col-md-5">
+
+				{#   Modification effectuée sur le layout pour insérer le langue switcher #}
+				{% block langue_switcher %}
+					{% include 'changeLangue.html.twig' %}
+				{% endblock langue_switcher %}
+				{# fin de la modification #}
+
+			</div>
+		</div>
+	</div>
+
+	<div class="navbar-custom-menu">
+		{% block header_custom_menu %}
+			<div class="dropdown user-menu-wrapper {{ is_granted(impersonator_permission) ? 'user-is-impersonated' }}">
+				<a class="user-details" type="button" data-bs-toggle="dropdown" data-bs-offset="0,5" aria-expanded="false">
+					{{ user_menu_avatar }}
+					{% if ea.userMenu.isNameDisplayed %}
+						<span class="user-name">{{ ea.userMenu.name }}</span>
+					{% endif %}
+				</a>
+
+				{{ user_menu_dropdown }}
+			</div>
+		{% endblock header_custom_menu %}
+	</div>
+{% endblock content_top_header %}
+
+
+{% block responsive_header_logo %}
+	<a class="responsive-logo" title="{{ ea.dashboardTitle|striptags }}" href="{{ path(ea.dashboardRouteName) }}">
+		<div class="row">
+			<div class="col_md_12" style="text-align:center">
+				<img src="build/images/logo.png" style="width:40px;" alt="Symfony builder">
+			</div>
+		</div>
+	</a>
+{% endblock responsive_header_logo %}
+
+
+{% block header_logo %}
+	<a class="logo" title="{{ ea.dashboardTitle|striptags }}" href="{{ path(ea.dashboardRouteName) }}">
+		<div class="row">
+			<div class="col_md_12" style="text-align:center">
+				<img src="build/images/logo.png" style="width:100px;" alt="Symfony builder">
+			</div>
+		</div>
+	</a>
+{% endblock header_logo %}

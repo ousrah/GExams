@@ -1,0 +1,22 @@
+Etudiants: Students
+Filieres: Sectors
+Users: Users
+Etudiant: Student
+Filiere: Sector
+User: User
+Dashboard: Exams Management
+security:
+  reset-password: Reset Password
+  forgetten-password: I forget my password 
+  enter-email: Enter your email
+  send-email:  Send link to reset the password
+  email: Email
+  password: Password
+  username: Username
+  remember-me: Remember me
+  login: Login
+  dont-have-account: I don't have account
+  register: Register me
+  accept: I accept all
+  terms: the terms
+  
